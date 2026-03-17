@@ -6,7 +6,7 @@
 
 Name: libtalloc
 Version: 2.4.3
-Release: %{?xsrel}%{?dist}
+Release: %{?xsrel}.1%{?dist}
 Summary:         The talloc library
 License:         LGPL-3.0-or-later
 URL:             https://talloc.samba.org/
@@ -20,8 +20,15 @@ BuildRequires: python3-devel
 BuildRequires: gnupg2
 
 Provides: bundled(libreplace)
+
+# Python bindings no more used by system:
+# Samba does not build runtime python libraries anymore
+# XS removal of a version XCP-ng did not ship
 Obsoletes: python2-talloc < 2.2.0-1
 Obsoletes: python2-talloc-devel < 2.2.0-1
+# XCP-ng: Removal of a previous samba requirement
+Obsoletes: pytalloc <= 2.1.16-1.el7
+Obsoletes: pytalloc-devel <= 2.1.16-1.el7
 
 %description
 A library that implements a hierarchical allocator with destructors.
@@ -102,6 +109,9 @@ export python_LDFLAGS=""
 %endif
 
 %changelog
+* Mon Jul 06 2026 Philippe Coval <philippe.coval@vates.tech> - 2.4.3-1.1
+- Obsoletes pytalloc
+
 * Fri Sep 19 2025 Lin Liu <lin.liu@citrix.com> - 2.4.3-1
 - CP-310101: Update to 2.4.3 for samba update
 
