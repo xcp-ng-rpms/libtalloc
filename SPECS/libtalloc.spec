@@ -6,7 +6,7 @@
 
 Name: libtalloc
 Version: 2.4.3
-Release: %{?xsrel}.1%{?dist}
+Release: %{?xsrel}.1~XCPNG2698.3%{?dist}
 Summary:         The talloc library
 License:         LGPL-3.0-or-later
 URL:             https://talloc.samba.org/
